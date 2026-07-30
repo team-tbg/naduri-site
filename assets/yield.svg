@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 300" role="img"
+     aria-label="이자가 생기는 구조 — 스왑 수수료를 harvest가 회수해 5대5로 나누고 절반이 볼트에 남아 좌당 가치를 올린다">
+  <defs>
+    <style>
+      :root{
+        --ink:#0f172a; --muted:#64748b; --card:#ffffff; --line:#e2e8f0;
+        --line2:#cbd5e1; --tint:#f5f7fb; --blue:#2F6BF3; --warn:#DC2626; --svgbg:#ffffff;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --ink:#f1f5f9; --muted:#94a3b8; --card:#1a2540; --line:#2c3a5c;
+          --line2:#47598a; --tint:#141e35; --blue:#7cb0ff; --warn:#fca5a5; --svgbg:#111a2e;
+        }
+      }
+    </style>
+    <style>
+      .t   { font: 700 14px 'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif; fill: var(--ink,#0f172a); }
+      .d   { font: 400 12px 'Pretendard','Apple SD Gothic Neo',sans-serif; fill: var(--muted,#64748b); }
+      .big { font: 700 22px 'Pretendard',sans-serif; }
+      .box { fill: var(--card,#fff); stroke: var(--line,#e2e8f0); stroke-width: 1.5; }
+      .fl  { stroke: var(--line2,#cbd5e1); stroke-width: 2; fill: none; }
+    </style>
+    <marker id="a3" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto">
+      <path d="M0 1 L8 4.5 L0 8 z" fill="var(--line2,#cbd5e1)"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="var(--svgbg)"/>
+
+  <!-- 스왑 -->
+  <rect class="box" x="16" y="104" width="176" height="76" rx="12"/>
+  <text class="t" x="36" y="132">누군가 스왑한다</text>
+  <text class="d" x="36" y="152">우리 USDC/USDT 풀에서</text>
+  <text class="d" x="36" y="170">→ 수수료 발생</text>
+
+  <path class="fl" marker-end="url(#a3)" d="M192 142 H252"/>
+
+  <!-- harvest -->
+  <rect class="box" x="252" y="96" width="176" height="92" rx="12" stroke="#12B76A" stroke-width="2"/>
+  <text class="t" x="272" y="124">harvest()</text>
+  <text class="d" x="272" y="144">수수료만 회수</text>
+  <text class="d" x="272" y="162">(원금은 건드리지 않음)</text>
+  <text class="d" x="272" y="180" fill="#12B76A">퍼미션리스 — 누구나 호출</text>
+
+  <path class="fl" marker-end="url(#a3)" d="M428 124 H488 V74 H548"/>
+  <path class="fl" marker-end="url(#a3)" d="M428 160 H488 V214 H548"/>
+
+  <!-- 트레저리 -->
+  <rect class="box" x="548" y="40" width="200" height="68" rx="12"/>
+  <text class="big" x="568" y="72" fill="#FDB022">50%</text>
+  <text class="t" x="628" y="72">나드리 트레저리</text>
+  <text class="d" x="568" y="94">실제로 전송된다</text>
+
+  <!-- 볼트 -->
+  <rect class="box" x="548" y="180" width="200" height="68" rx="12" stroke="#12B76A" stroke-width="2"/>
+  <text class="big" x="568" y="212" fill="#12B76A">50%</text>
+  <text class="t" x="628" y="212">볼트에 남는다</text>
+  <text class="d" x="568" y="234">아무에게도 전송하지 않음</text>
+
+  <path class="fl" marker-end="url(#a3)" d="M748 214 H808"/>
+
+  <!-- 좌당 가치 -->
+  <rect x="808" y="164" width="156" height="100" rx="12"
+        fill="var(--tint,#f1f5f9)" stroke="#12B76A" stroke-width="2"/>
+  <text class="t" x="828" y="192">지분 수는 그대로</text>
+  <text class="t" x="828" y="214" fill="#12B76A">좌당 가치 ↑</text>
+  <text class="d" x="828" y="236">= 유저의 이자</text>
+  <text class="d" x="828" y="254">전송 없이 비례 배분</text>
+
+  <!-- 하단 메모 -->
+  <text class="d" x="16" y="284">유저 1만 명이어도 반복문 없이 정확히 나뉜다. 유저 잔고가 balanceOf 로 체인에 그대로 있어 — 나드리가 숫자를 부풀릴 수 없다.</text>
+</svg>
